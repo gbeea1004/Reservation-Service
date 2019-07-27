@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+
 <!DOCTYPE html>
 <!-- saved from url=(0042)https://m.booking.naver.com/booked/confirm -->
 <html lang="ko" class="no-js" >

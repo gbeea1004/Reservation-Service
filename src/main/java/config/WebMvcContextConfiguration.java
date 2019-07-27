@@ -8,13 +8,14 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"controller"})
+@ComponentScan(basePackages = {"web"})
 public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/META-INF/resources/webjars/").setCachePeriod(31556926);
-        registry.addResourceHandler("/css/**").addResourceLocations("/css/").setCachePeriod(31556926);
-        registry.addResourceHandler("/img/**").addResourceLocations("/img/").setCachePeriod(31556926);
+        registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/META-INF/").setCachePeriod(31556926);
+        registry.addResourceHandler("/src/main/webapp/css/**").addResourceLocations("/src/main/webapp/css/").setCachePeriod(31556926);
+        registry.addResourceHandler("/src/main/webapp/img/**").addResourceLocations("/src/main/webapp/img/").setCachePeriod(31556926);
         registry.addResourceHandler("/js/**").addResourceLocations("/js/").setCachePeriod(31556926);
     }
 
@@ -33,8 +34,8 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
     @Bean
     public InternalResourceViewResolver getInternalResourceViewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/resources/views/");
-        resolver.setSuffix(".html");
+        resolver.setPrefix("/view/");
+        resolver.setSuffix(".jsp");
         return resolver;
     }
 }
